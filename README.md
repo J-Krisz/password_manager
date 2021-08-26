@@ -1,1 +1,1 @@
-# password_manager
+A Full-stack password manager with a Django back end
