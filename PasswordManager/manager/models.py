@@ -10,6 +10,7 @@ class Account(models.Model):
     username = models.CharField(max_length=100, blank=True)
     password = models.CharField(max_length=100, blank=True)
     email = models.EmailField(blank=True)
+    notes = models.TextField(blank=True)
 
     def __str__(self):
         return self.title

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+
+{% include 'navbar.html' %}
+
+
+<div class="container">
+    {% if user.is_authenticated %}
+
+    <h2>Hello {{ user.username }}.</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Username</th>
+                <th>E-mail</th>
+                <th>Password</th>
+                <th>URL</th>
+                <th>Notes</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for account in accounts %}
+            <tr>
+                <td>{{ account.title }}</td>
+                <td>{{ account.username }}</td>
+                <td>{{ account.email }}</td>
+
+
+                <td>
+                    <a href="">
+                        {% with sym='************' %}
+                        {{ sym }}
+                        {% endwith %}
+                    </a>
+                </td>
+
+
+                <td>{{ account.url }}</td> 
+                <td>{{ account.notes|slice:":50" }}</td>
+                <td>
+                    <a class="btn btn-sm btn-secondary" href="{% url 'edit' account.id %}">Edit</a>
+                    <a class="btn btn-sm btn-danger" href="{% url 'delete' account.id %}" >Delete</a>
+                </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+    <h1>You have no permission to be here</h1>
+    {% endif %}
+</div>
+
+
+{% endblock %}

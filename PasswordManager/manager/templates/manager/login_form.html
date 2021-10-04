@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block page_content %}
+<div class="container text-center" >
+        <div class="header-bar" style="padding-top: 150px;">
+        <h1>Login</h1>
+    </div>
+    
+    <div class="car-body">
+        <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="button" type="submit" value="Login">
+    </form>
+    </div>
+    
+    
+    
+    <p>Don't have n account? <a href="{% url 'signup' %}">Register</a></p>
+</div>
+{% endblock %}
