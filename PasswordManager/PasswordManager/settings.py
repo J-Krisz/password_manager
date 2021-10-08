@@ -30,11 +30,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'manager',
 
 
     'crispy_forms',
-    'crispy_bootstrap5',
+    #'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -118,7 +119,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(STATIC_URL, 'static'),
+    os.path.join(BASE_DIR, 'static'),
     ]
 
 # Default primary key field type
@@ -128,5 +129,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # CRISPY FORMS
-CRISPY_ALLOWED_TEMPLATE_PACK = 'bootstrap5'
-CRISPY_TEMPLATE_PACK = 'bootstrap5'
+CRISPY_ALLOWED_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

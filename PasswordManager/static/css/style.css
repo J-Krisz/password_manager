@@ -1,3 +1,26 @@
+h1, h2 {
+    text-align: center;
+}
+
 a {
     text-decoration: none;
 }
+
+.form-control {
+    width: 100%;
+    margin: 1rem 0;
+    position: relative;
+}
+
+
+.toggle-password {
+    position: absolute;
+    top: 56.5%;
+    right: 19rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+
+

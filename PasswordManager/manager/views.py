@@ -39,8 +39,12 @@ class UserLoginView(LoginView):
 class AddNewAccountView(LoginRequiredMixin, CreateView):
     model = Account
     form_class = AccountForm
-    template_name = 'manager/add_accounts.html'
+    template_name = 'manager/add_account.html'
+    success_url = reverse_lazy('accounts')
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(AddNewAccountView, self).form_valid(form)
 
 class AccountListView(LoginRequiredMixin, ListView):
     template_name = 'manager/accounts.html'

@@ -1,6 +1,6 @@
 from manager.models import Account
 from django.urls import path
-from .views import LandingPageView, SignUpView, UserLoginView, AccountListView, EditAccountView, AccountDeleteView
+from .views import LandingPageView, SignUpView, UserLoginView, AccountListView, AddNewAccountView, EditAccountView, AccountDeleteView
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
@@ -11,6 +11,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(next_page='index'), name='logout'),
 
     path('accounts/', AccountListView.as_view(), name='accounts'),
+    path('new_account/', AddNewAccountView.as_view(), name='new_account'),
     path('edit/<str:pk>/', EditAccountView.as_view(), name='edit'), 
     path('delete/<str:pk>', AccountDeleteView.as_view(), name='delete'),
 ]

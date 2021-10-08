@@ -6,9 +6,14 @@
 
 
 <div class="container">
+    
     {% if user.is_authenticated %}
 
-    <h2>Hello {{ user.username }}.</h2>
+    <h2>Hello {{ user.username|capfirst }}</h2>
+
+    <a class="btn btn-secondary"href="{% url 'new_account' %}">Crete Account</a>
+    <br><br>
+
     <table class="table">
         <thead>
             <tr>
@@ -25,24 +30,26 @@
             {% for account in accounts %}
             <tr>
                 <td>{{ account.title }}</td>
-                <td>{{ account.username }}</td>
-                <td>{{ account.email }}</td>
+                <td><a class="tc to-clp" href="#" data={{ account.username }}>{{ account.username }}</a></td>
+                <td><a class="tc to-clp" href="#" data={{ account.email }}>{{ account.email }}</a></td>
 
 
                 <td>
-                    <a href="">
-                        {% with sym='************' %}
-                        {{ sym }}
-                        {% endwith %}
-                    </a>
+                    <a class="tc to-clp" href="#" data={{ account.password }}>*********</a>
                 </td>
 
 
-                <td>{{ account.url }}</td> 
+                <td><a href="{{ account.url }}" target="_blank">{{ account.url }}</a></td> 
                 <td>{{ account.notes|slice:":50" }}</td>
                 <td>
+
                     <a class="btn btn-sm btn-secondary" href="{% url 'edit' account.id %}">Edit</a>
-                    <a class="btn btn-sm btn-danger" href="{% url 'delete' account.id %}" >Delete</a>
+
+                    <form action="{% url 'delete' account.id %}" method="POST" style="display: inline;">
+                        {% csrf_token %}
+                        <button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Deleting this account will cause all of the information to be lost.\nDo you wish to continue?')">Delete</button></button>
+                    </form>
+
                 </td>
             </tr>
 
