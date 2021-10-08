@@ -6,7 +6,77 @@ a {
     text-decoration: none;
 }
 
-.form-control {
+.wrapper {
+    padding-bottom: 25px;
+
+}
+
+.password-field {
+    display: relative;
+}
+
+.toggle-password {
+    cursor: pointer;
+}
+
+.dice {
+    cursor: pointer;
+}
+
+.password-field .toggle-password {
+    position: absolute;
+    top: 347px;
+    right: 333px;
+}
+
+.password-field .dice {
+    position: absolute;
+    top: 347px;
+    right: 360px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .form-control {
     width: 100%;
     margin: 1rem 0;
     position: relative;
@@ -15,11 +85,19 @@ a {
 
 .toggle-password {
     position: absolute;
-    top: 56.5%;
+    top: 31%;
     right: 19rem;
     cursor: pointer;
     user-select: none;
-}
+} */
+
+/* .toggle-modal {
+    position: absolute;
+    top: 31%;
+    right: 5 rem;
+    cursor: pointer;
+    user-select: none;
+} */
 
 
 

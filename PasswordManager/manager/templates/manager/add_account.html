@@ -9,23 +9,44 @@
     
     <form action="" method="post">
         {% csrf_token %}
+        <div class="wrapper">
+            <label for="title">Title</label>
+            {{ form.title }}
+        </div>
         
-        <label for="title">Title</label>
-        {{ form.title }}
+        <div class="wrapper">
+            <label for="id_username">Username</label>
+            {{ form.username }}
+        </div>
 
-        <label for="username">Username</label>
-        {{ form.username }}
+        <div class="wrapper">
+            <label for="id_email">Email</label>
+            {{ form.email }}
+        </div>
+             
+        <div class="wrapper password-field">
+            <label for="id_password">Password</label>
+            {{ form.password }}
+            <span class="toggle-modal dice" data-bs-toggle="modal" data-bs-target="#"}>
+                <i id="dice" class="fas fa-dice"></i>
+            </span>
+            <span class="toggle-password ">
+                <i class="fas fa-eye" id="eye"></i>
+            </span>
+        </div>
 
-        <label for="id_password">Password</label>
-        {{ form.password }}
-        <span class="" data-bs-toggle="modal" data-bs-target=""}>
-            <i id="dice" class="fas fa-dice"></i>
-        </span>
-        <span class="toggle-password" data-bs-toggle="modal">
-            <i class="fas fa-eye" id="eye"></i>
-        </span>
+        <div class="wrapper">
+            <label for="id_url">URL</label>
+            {{ form.url }}
+        </div>
+
+        <div class="wrapper">
+            <label for="id_notes">Notes</label>
+            {{ form.notes }}
+        </div>
         
-
+        <button class="btn btn-primary" type="submit">Add</button>
+        <a href="{% url 'accounts' %}" class="btn btn-danger">Back</a>
     </form>
             
 </div>
