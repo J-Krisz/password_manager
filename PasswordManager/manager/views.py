@@ -14,6 +14,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 
+from bootstrap_modal_forms.generic import BSModalCreateView
+
 from .forms import AccountForm, UserRegistrationForm
 from .models import Account
 
@@ -46,8 +48,21 @@ class AddNewAccountView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super(AddNewAccountView, self).form_valid(form)
 
+
+# TODO Modal view
+# class AddNewAccountView(LoginRequiredMixin, BSModalCreateView):
+#     template_name = 'manager/add_account.html'
+#     form_class = AccountForm
+#     success_message = 'New account added!'
+#     success_url = reverse_lazy('accounts')
+
+#     def form_valid(self, form):
+#         form.instance.user = self.request.user
+#         return super(AddNewAccountView, self).form_valid(form)
+
+
 class AccountListView(LoginRequiredMixin, ListView):
-    template_name = 'manager/accounts.html'
+    template_name = 'manager/main.html'
     model = Account
     context_object_name = 'accounts'
 

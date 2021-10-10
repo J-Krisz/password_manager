@@ -4,11 +4,51 @@
 
 {% block page_content %}
 
+{% include 'navbar.html' %}
 <div class="container">
-    <h1>Edit {{account.title}}</h1>
-    <form action="" method="POST">
+    <h1>Edit {{ account.title }}</h1>
+    
+    <form action="" method="post">
         {% csrf_token %}
-        {% crispy form %}
+        <div class="wrapper">
+            <label for="title">Title</label>
+            {{ form.title }}
+        </div>
+        
+        <div class="wrapper">
+            <label for="id_username">Username</label>
+            {{ form.username }}
+        </div>
+
+        <div class="wrapper">
+            <label for="id_email">Email</label>
+            {{ form.email }}
+        </div>
+             
+        <div class="wrapper password-field">
+            <label for="id_password">Password</label>
+            {{ form.password }}
+            <span class="toggle-modal dice" data-bs-toggle="modal" data-bs-target="#"}>
+                <i id="dice" class="fas fa-dice"></i>
+            </span>
+            <span class="toggle-password ">
+                <i class="fas fa-eye" id="eye"></i>
+            </span>
+        </div>
+
+        <div class="wrapper">
+            <label for="id_url">URL</label>
+            {{ form.url }}
+        </div>
+
+        <div class="wrapper">
+            <label for="id_notes">Notes</label>
+            {{ form.notes }}
+        </div>
+        
+        <button class="btn btn-primary" type="submit">Edit</button>
+        <a class="btn btn-danger" href="{% url 'accounts' %}">Back</a>
     </form>
+            
 </div>
 {% endblock %}

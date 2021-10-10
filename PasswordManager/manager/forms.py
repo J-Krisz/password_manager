@@ -28,7 +28,7 @@ class AccountForm(ModelForm):
             'email': forms.TextInput(attrs={'class': 'form-control'}),
             'password': forms.TextInput(attrs={'class': 'form-control', 'type': 'password', }), 
             'url': forms.TextInput(attrs={'class': 'form-control'}),
-            'notes': forms.TextInput(attrs={'class': 'form-control'}),
+            'notes': forms.Textarea(attrs={'class': 'form-control'}),
         }
 
 
