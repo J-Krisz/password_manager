@@ -49,8 +49,10 @@ class AddNewAccountView(LoginRequiredMixin, CreateView):
         return super(AddNewAccountView, self).form_valid(form)
 
 
-# TODO Modal view
+
 # class AddNewAccountView(LoginRequiredMixin, BSModalCreateView):
+    # # TODO Modal view
+    # pass
 #     template_name = 'manager/add_account.html'
 #     form_class = AccountForm
 #     success_message = 'New account added!'

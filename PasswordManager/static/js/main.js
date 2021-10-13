@@ -7,10 +7,10 @@ const eyeToggleBtn = document.getElementById('eye');
 function togglePasswordVisible() {
 
     if (passwordInput.type === 'password') {
-        eyeToggleBtn.classList = 'fas fa-eye-slash';
+        eyeToggleBtn.classList = 'fas fa-eye';
         passwordInput.type = 'text';
     } else {
-        eyeToggleBtn.classList = 'fas fa-eye';
+        eyeToggleBtn.classList = 'fas fa-eye-slash';
         passwordInput.type = 'password';
     };
 }
