@@ -8,8 +8,10 @@ from .forms import PasswordGeneratorForm
 
 
 class GeneratorFormView(LoginRequiredMixin, FormView):
-    pass
+    template_name = 'generator/generator.html'
 
+    form_class = PasswordGeneratorForm
+    
 
 def password_generator(request):
 
