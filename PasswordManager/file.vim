@@ -13,8 +13,9 @@ badd +1 manager/views.py
 badd +1 manager/models.py
 badd +1 manager/urls.py
 badd +1 generator/views.py
-badd +0 generator/forms.py
-badd +0 generator/templates/generator/generator.html
+badd +19 generator/forms.py
+badd +1 generator/templates/generator/generator.html
+badd +0 generator/urls.py
 argglobal
 %argdel
 $argadd ./
@@ -152,6 +153,10 @@ set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
 1wincmd h
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
 wincmd w
 wincmd _ | wincmd |
 split
@@ -162,11 +167,14 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 102 + 103) / 206)
-exe '2resize ' . ((&lines * 24 + 26) / 53)
-exe 'vert 2resize ' . ((&columns * 103 + 103) / 206)
-exe '3resize ' . ((&lines * 25 + 26) / 53)
-exe 'vert 3resize ' . ((&columns * 103 + 103) / 206)
+exe '1resize ' . ((&lines * 31 + 26) / 53)
+exe 'vert 1resize ' . ((&columns * 100 + 103) / 206)
+exe '2resize ' . ((&lines * 18 + 26) / 53)
+exe 'vert 2resize ' . ((&columns * 100 + 103) / 206)
+exe '3resize ' . ((&lines * 26 + 26) / 53)
+exe 'vert 3resize ' . ((&columns * 105 + 103) / 206)
+exe '4resize ' . ((&lines * 23 + 26) / 53)
+exe 'vert 4resize ' . ((&columns * 105 + 103) / 206)
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -177,12 +185,30 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 7 - ((6 * winheight(0) + 25) / 50)
+let s:l = 13 - ((9 * winheight(0) + 15) / 31)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-7
-normal! 0
+13
+normal! 038|
+wincmd w
+argglobal
+if bufexists("generator/urls.py") | buffer generator/urls.py | else | edit generator/urls.py | endif
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 1 - ((0 * winheight(0) + 9) / 18)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 05|
 wincmd w
 argglobal
 if bufexists("generator/forms.py") | buffer generator/forms.py | else | edit generator/forms.py | endif
@@ -195,12 +221,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 12) / 24)
+let s:l = 14 - ((13 * winheight(0) + 13) / 26)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+14
+normal! 013|
 wincmd w
 argglobal
 if bufexists("generator/templates/generator/generator.html") | buffer generator/templates/generator/generator.html | else | edit generator/templates/generator/generator.html | endif
@@ -213,19 +239,22 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 12) / 25)
+let s:l = 7 - ((6 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+7
+normal! 022|
 wincmd w
-3wincmd w
-exe 'vert 1resize ' . ((&columns * 102 + 103) / 206)
-exe '2resize ' . ((&lines * 24 + 26) / 53)
-exe 'vert 2resize ' . ((&columns * 103 + 103) / 206)
-exe '3resize ' . ((&lines * 25 + 26) / 53)
-exe 'vert 3resize ' . ((&columns * 103 + 103) / 206)
+4wincmd w
+exe '1resize ' . ((&lines * 31 + 26) / 53)
+exe 'vert 1resize ' . ((&columns * 100 + 103) / 206)
+exe '2resize ' . ((&lines * 18 + 26) / 53)
+exe 'vert 2resize ' . ((&columns * 100 + 103) / 206)
+exe '3resize ' . ((&lines * 26 + 26) / 53)
+exe 'vert 3resize ' . ((&columns * 105 + 103) / 206)
+exe '4resize ' . ((&lines * 23 + 26) / 53)
+exe 'vert 4resize ' . ((&columns * 105 + 103) / 206)
 tabnext 3
 set stal=1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'

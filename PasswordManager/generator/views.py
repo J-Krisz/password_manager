@@ -20,7 +20,7 @@ def password_generator(request):
     numbers = string.digits
     symbols = string.punctuation
 
-    length = int(request.GET.get('length'))
+    length = int(request.GET.get('length', '12'))
 
     use_chars = lc_letters
 
