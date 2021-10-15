@@ -2,7 +2,7 @@ let SessionLoad = 1
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/Projects/portfolio_projects/PW_manager/PasswordManager
+cd ~/Projects/Code/portfolio_projects/PW_manager/PasswordManager
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -12,10 +12,10 @@ badd +1 PasswordManager/urls.py
 badd +1 manager/views.py
 badd +1 manager/models.py
 badd +1 manager/urls.py
-badd +1 generator/views.py
-badd +19 generator/forms.py
+badd +33 generator/views.py
+badd +22 generator/forms.py
 badd +1 generator/templates/generator/generator.html
-badd +0 generator/urls.py
+badd +1 generator/urls.py
 argglobal
 %argdel
 $argadd ./
@@ -167,13 +167,13 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 31 + 26) / 53)
+exe '1resize ' . ((&lines * 39 + 26) / 53)
 exe 'vert 1resize ' . ((&columns * 100 + 103) / 206)
-exe '2resize ' . ((&lines * 18 + 26) / 53)
+exe '2resize ' . ((&lines * 10 + 26) / 53)
 exe 'vert 2resize ' . ((&columns * 100 + 103) / 206)
-exe '3resize ' . ((&lines * 26 + 26) / 53)
+exe '3resize ' . ((&lines * 34 + 26) / 53)
 exe 'vert 3resize ' . ((&columns * 105 + 103) / 206)
-exe '4resize ' . ((&lines * 23 + 26) / 53)
+exe '4resize ' . ((&lines * 15 + 26) / 53)
 exe 'vert 4resize ' . ((&columns * 105 + 103) / 206)
 argglobal
 setlocal fdm=manual
@@ -185,12 +185,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 13 - ((9 * winheight(0) + 15) / 31)
+let s:l = 16 - ((15 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-13
-normal! 038|
+16
+normal! 0
 wincmd w
 argglobal
 if bufexists("generator/urls.py") | buffer generator/urls.py | else | edit generator/urls.py | endif
@@ -203,7 +203,7 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 9) / 18)
+let s:l = 1 - ((0 * winheight(0) + 5) / 10)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -221,12 +221,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 14 - ((13 * winheight(0) + 13) / 26)
+let s:l = 1 - ((0 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-14
-normal! 013|
+1
+normal! 0
 wincmd w
 argglobal
 if bufexists("generator/templates/generator/generator.html") | buffer generator/templates/generator/generator.html | else | edit generator/templates/generator/generator.html | endif
@@ -239,21 +239,21 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 7 - ((6 * winheight(0) + 11) / 23)
+let s:l = 1 - ((0 * winheight(0) + 7) / 15)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-7
+1
 normal! 022|
 wincmd w
-4wincmd w
-exe '1resize ' . ((&lines * 31 + 26) / 53)
+3wincmd w
+exe '1resize ' . ((&lines * 39 + 26) / 53)
 exe 'vert 1resize ' . ((&columns * 100 + 103) / 206)
-exe '2resize ' . ((&lines * 18 + 26) / 53)
+exe '2resize ' . ((&lines * 10 + 26) / 53)
 exe 'vert 2resize ' . ((&columns * 100 + 103) / 206)
-exe '3resize ' . ((&lines * 26 + 26) / 53)
+exe '3resize ' . ((&lines * 34 + 26) / 53)
 exe 'vert 3resize ' . ((&columns * 105 + 103) / 206)
-exe '4resize ' . ((&lines * 23 + 26) / 53)
+exe '4resize ' . ((&lines * 15 + 26) / 53)
 exe 'vert 4resize ' . ((&columns * 105 + 103) / 206)
 tabnext 3
 set stal=1

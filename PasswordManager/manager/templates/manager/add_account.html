@@ -27,10 +27,11 @@
             <label for="id_password">Password</label>
             {{ form.password }}
             <span class="toggle-modal dice" data-bs-toggle="modal" data-bs-target="#"}>
-                <i id="dice" class="fas fa-dice"></i>
+                <a href="{% url 'generator' %}"><i id="dice" class="fas
+                        fa-dice"></i></a>
             </span>
             <span class="toggle-password ">
-                <i class="fas fa-eye" id="eye"></i>
+                <i class="fas fa-eye-slash" id="eye"></i>
             </span>
         </div>
 

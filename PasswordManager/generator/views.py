@@ -12,8 +12,8 @@ class GeneratorFormView(LoginRequiredMixin, FormView):
 
     form_class = PasswordGeneratorForm
     
-
-def password_generator(request):
+# TODO write GET method for Generator class with the generator logic below
+def password(request):
 
     lc_letters = string.ascii_lowercase
     uc_letters = string.ascii_uppercase
