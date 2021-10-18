@@ -13,7 +13,8 @@ class PasswordGeneratorForm(forms.Form):
 
     OPTIONS = (('lc_letters', 'a-z'), ('uc_letters', 'A-Z'),
             ('numbers', '0-9'), ('symbols', '@%^!...'))
-
+    
+    # TODO flattecn checkboxes
     characters = forms.MultipleChoiceField(
             choices=OPTIONS,
             widget=forms.CheckboxSelectMultiple(
